@@ -32,7 +32,7 @@ services:
       - MYSQL_USER=radius
       - MYSQL_PASSWORD=radiusdbpw
       # Optional settings
-      - DEFAULT_CLIENT_SECRET=testing123
+      - DEFAULT_CLIENT_SECRET=M@gicsoftware@1996!
     volumes:
       - ./data/freeradius:/data
       - radius_logs:/var/log/freeradius
@@ -57,7 +57,7 @@ services:
       - MYSQL_PASSWORD=radiusdbpw
       - MYSQL_ROOT_PASSWORD=radiusrootdbpw
       # Optional Settings:
-      - DEFAULT_CLIENT_SECRET=testing123
+      - DEFAULT_CLIENT_SECRET=M@gicsoftware@1996!
       - DEFAULT_FREERADIUS_SERVER=radius
       - MAIL_SMTPADDR=127.0.0.1
       - MAIL_PORT=25
