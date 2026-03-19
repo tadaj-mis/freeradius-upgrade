@@ -7,6 +7,7 @@ services:
     container_name: radius-mysql
     restart: unless-stopped
     environment:
+      - TZ=Asia/Bangkok
       - MYSQL_DATABASE=radius
       - MYSQL_USER=radius
       - MYSQL_PASSWORD=radiusdbpw
@@ -26,6 +27,7 @@ services:
       - '1812:1812/udp'
       - '1813:1813/udp'
     environment:
+      - TZ=Asia/Bangkok
       - MYSQL_HOST=radius-mysql
       - MYSQL_PORT=3306
       - MYSQL_DATABASE=radius
@@ -35,9 +37,9 @@ services:
       - DEFAULT_CLIENT_SECRET=M@gicsoftware@1996!
     volumes:
       - ./data/freeradius:/data
-      - radius_logs:/var/log/freeradius
+      - ./radius_logs:/var/log/freeradius
     # Uncomment below to enable debug logging.
-    #command: -X
+    command: -X
 
   radius-web:
     build: .
@@ -47,9 +49,10 @@ services:
       - radius
       - radius-mysql
     ports:
-      - '8085:80'
+      - '8088:80'
       - '8000:8000'
     environment:
+      - TZ=Asia/Bangkok
       - MYSQL_HOST=radius-mysql
       - MYSQL_PORT=3306
       - MYSQL_DATABASE=radius
